@@ -14,14 +14,15 @@ public class Alarm : MonoBehaviour
     private float _maxAlarmVolume = 1;    
     private Coroutine _changeVolume;
 
+   
     private void Start()
     {
-        _house = GetComponent<House>();
         _audioSource.volume = _minAlarmVolume;
     }
 
     private void OnEnable()
     {
+        _house = GetComponent<House>();
         _house.Breached += OnVolumeChange;        
     }
 

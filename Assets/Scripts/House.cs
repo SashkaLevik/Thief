@@ -7,6 +7,7 @@ public class House : MonoBehaviour
 {    
     [SerializeField] private UnityEvent<bool> _perimeterBreached;
 
+    
     public bool IsBreached { get; private set; }
 
     public event UnityAction<bool> Breached
@@ -27,6 +28,6 @@ public class House : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         IsBreached = false;
-        _perimeterBreached.Invoke(IsBreached);
+        //_perimeterBreached.Invoke(IsBreached);
     }
 }
