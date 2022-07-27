@@ -9,6 +9,7 @@ public class Thief : MonoBehaviour
     [SerializeField] private Transform _targetPoint;
 
     private Animator _animator;
+    private float _moveSpeed = 0.01f;
 
     private const string Move = "Move";
 
@@ -20,6 +21,6 @@ public class Thief : MonoBehaviour
     private void Update()
     {
         _animator.SetTrigger(Move);
-        transform.position = Vector3.MoveTowards(transform.position, _targetPoint.position, 0.01f);
+        transform.position = Vector3.MoveTowards(transform.position, _targetPoint.position, _moveSpeed);
     }
 }

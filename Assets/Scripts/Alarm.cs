@@ -33,15 +33,14 @@ public class Alarm : MonoBehaviour
 
     private void OnVolumeChange(bool isBreached)
     {
-        if (isBreached == true)
+        if (isBreached)
         {
             _changeVolume = StartCoroutine(ChangingVolume(_maxAlarmVolume));
+            return;
         }
-        else if(isBreached == false)
-        {
-            StopCoroutine(ChangingVolume(_maxAlarmVolume));
-            _changeVolume = StartCoroutine(ChangingVolume(_minAlarmVolume));
-        }
+
+        StopCoroutine(ChangingVolume(_maxAlarmVolume));
+        _changeVolume = StartCoroutine(ChangingVolume(_minAlarmVolume));
     }    
 
     private IEnumerator ChangingVolume(float target)
